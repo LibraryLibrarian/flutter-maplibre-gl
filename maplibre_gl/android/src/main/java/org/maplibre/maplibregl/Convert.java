@@ -313,6 +313,10 @@ static LocationEngineRequest toLocationEngineRequest(Object o) {
       final Point point = toPoint(attributionButtonMarginsData, metrics.density);
       sink.setAttributionButtonMargins(point.x, point.y);
     }
+    final Object attributionButtonEnabled = data.get("attributionButtonEnabled");
+    if (attributionButtonEnabled != null) {
+      sink.setAttributionButtonEnabled(toBoolean(attributionButtonEnabled));
+    }
     final Object foregroundLoadColor = data.get("foregroundLoadColor");
     if (foregroundLoadColor != null) {
       sink.setForegroundLoadColor(toInt(foregroundLoadColor));

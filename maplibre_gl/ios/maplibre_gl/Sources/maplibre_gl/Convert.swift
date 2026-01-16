@@ -87,6 +87,9 @@ class Convert {
         {
             delegate.setAttributionButtonPosition(position: position)
         }
+        if let attributionButtonEnabled = options["attributionButtonEnabled"] as? Bool {
+            delegate.setAttributionButtonEnabled(attributionButtonEnabled: attributionButtonEnabled)
+        }
     }
     
     class func parseLatLngBoundsPadding(_ cameraUpdate: [Any]) -> UIEdgeInsets? {

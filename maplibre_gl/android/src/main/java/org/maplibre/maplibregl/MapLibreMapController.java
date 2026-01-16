@@ -2292,6 +2292,11 @@ final class MapLibreMapController
   }
 
   @Override
+  public void setAttributionButtonEnabled(boolean attributionButtonEnabled) {
+    mapLibreMap.getUiSettings().setAttributionEnabled(attributionButtonEnabled);
+  }
+
+  @Override
   public void setForegroundLoadColor(int color) {
     // foregroundLoadColor is only useful during initial map creation
     // not for runtime updates, so this is a no-op

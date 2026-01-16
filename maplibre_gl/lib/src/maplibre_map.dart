@@ -42,6 +42,7 @@ class MapLibreMap extends StatefulWidget {
     this.compassViewMargins,
     this.attributionButtonPosition = AttributionButtonPosition.bottomRight,
     this.attributionButtonMargins,
+    this.attributionButtonEnabled = true,
     this.iosLongClickDuration,
     this.webPreserveDrawingBuffer = false,
     this.onMapClick,
@@ -237,6 +238,12 @@ class MapLibreMap extends StatefulWidget {
   /// different defaults.
   final Point? attributionButtonMargins;
 
+  /// True if the MapLibre Attribution button should be shown on the map.
+  /// If you set this to false, you MUST display attribution information
+  /// elsewhere in your application (e.g., in an About screen).
+  /// Defaults to true.
+  final bool attributionButtonEnabled;
+
   /// Which gestures should be consumed by the map.
   ///
   /// It is possible for other gesture recognizers to be competing with the map on pointer
@@ -408,6 +415,7 @@ class _MapLibreMapOptions {
       this.compassViewMargins,
       this.attributionButtonPosition,
       this.attributionButtonMargins,
+      this.attributionButtonEnabled,
       this.locationEnginePlatforms,
       this.foregroundLoadColor,
       this.translucentTextureSurface});
@@ -436,6 +444,7 @@ class _MapLibreMapOptions {
           compassViewMargins: map.compassViewMargins,
           attributionButtonPosition: map.attributionButtonPosition,
           attributionButtonMargins: map.attributionButtonMargins,
+          attributionButtonEnabled: map.attributionButtonEnabled,
           foregroundLoadColor: map.foregroundLoadColor,
           translucentTextureSurface: map.translucentTextureSurface,
         );
@@ -479,6 +488,8 @@ class _MapLibreMapOptions {
   final AttributionButtonPosition? attributionButtonPosition;
 
   final Point? attributionButtonMargins;
+
+  final bool? attributionButtonEnabled;
 
   final LocationEnginePlatforms? locationEnginePlatforms;
 
@@ -534,6 +545,7 @@ class _MapLibreMapOptions {
     addIfNonNull('attributionButtonPosition', attributionButtonPosition?.index);
     addIfNonNull(
         'attributionButtonMargins', pointToArray(attributionButtonMargins));
+    addIfNonNull('attributionButtonEnabled', attributionButtonEnabled);
     addIfNonNull('locationEngineProperties', locationEnginePlatforms?.toList());
     addIfNonNull('foregroundLoadColor', foregroundLoadColor?.toARGB32());
     addIfNonNull('translucentTextureSurface', translucentTextureSurface);

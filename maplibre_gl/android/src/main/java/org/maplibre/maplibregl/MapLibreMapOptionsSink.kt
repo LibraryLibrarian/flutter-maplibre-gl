@@ -48,6 +48,8 @@ internal interface MapLibreMapOptionsSink {
 
     fun setAttributionButtonMargins(x: Int, y: Int)
 
+    fun setAttributionButtonEnabled(attributionButtonEnabled: Boolean)
+
     fun setLocationEngineProperties(locationEngineRequest: LocationEngineRequest)
 
     fun setForegroundLoadColor(loadColor: Int)
